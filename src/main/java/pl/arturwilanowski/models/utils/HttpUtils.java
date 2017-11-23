@@ -7,7 +7,7 @@ import java.net.URL;
 
 public class HttpUtils {
 
-    //ta metoda jest odpowiedzialna za polaczenie ze stronka, pobranie i przeczytanie i zapisac do StringBuildera
+
     public static String makeHttpRequest(String url){
 
         StringBuilder stringBuilder = new StringBuilder();
@@ -20,14 +20,14 @@ public class HttpUtils {
 
             int read = 0;
             while ((read = inputStream.read()) != -1){
-                stringBuilder.append((char)read);           //<--- zapisujemy tekst w StringBuilderze
+                stringBuilder.append((char)read);
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
         System.out.println(stringBuilder.toString());
-        return stringBuilder.toString();            //<--- zwraca tekst tej temp. pogody
+        return stringBuilder.toString();
     }
 
 }

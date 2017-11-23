@@ -9,13 +9,13 @@ import java.sql.SQLException;
 
 public class DatabaseConnector {
 
-    private static DatabaseConnector instance = new DatabaseConnector();    //SINGLETON np.instance
+    private static DatabaseConnector instance = new DatabaseConnector();
 
     public static DatabaseConnector getInstance() {
-        return instance;                                                 //WYKONA SIE TYLKO RAZ dlatego mozna tutaj
-    }                                                                   //wywolac sql
+        return instance;
+    }
 
-    private Connection connection;                                   //klasa przechowujaca ceche w celu pozniejszych utworzen metody zeby ja wykorzystac
+    private Connection connection;
 
     private DatabaseConnector(){                        //databaseconector - jest tylko polaczeniem z baza danych!
         connect();
@@ -23,8 +23,8 @@ public class DatabaseConnector {
 
     private void connect(){
         try{
-            Class.forName("com.mysql.jdbc.Driver");                  //refleksja w java - psuje obiektowosc
-            try {                                               //w tym miejscu tworzy sie polaczenie
+            Class.forName("com.mysql.jdbc.Driver");
+            try {
                 connection = DriverManager.getConnection(Config.MYSQL_LINK, Config.MYSQL_LOGIN, Config.MYSQL_PASSWORD);
             } catch (SQLException e) {
                 e.printStackTrace();

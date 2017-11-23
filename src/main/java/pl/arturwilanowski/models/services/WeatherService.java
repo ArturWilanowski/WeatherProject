@@ -23,12 +23,12 @@ public class WeatherService {
     public void makeCall(String city) {
 
         parseJsonData(HttpUtils.makeHttpRequest(Config.APP_URL + city + "&appid=" + Config.APP_ID));
-                                //tresc strony internetowej-makeHttpRequest
+
     }
 
     private void parseJsonData(String text){
         JSONObject root = new JSONObject(text);
-        JSONObject main = root.getJSONObject("main");       //na stronce najpierw główny korzen to root a pozniej mamy main'a
+        JSONObject main = root.getJSONObject("main");
         int temp = main.getInt("temp");
         System.out.println("Temperatura to: " + temp);
 
